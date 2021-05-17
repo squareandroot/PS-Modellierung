@@ -371,15 +371,15 @@
     Im folgenden Lösen wir dieses System mithilfe der \texttt{scipy} Funktion \texttt{solve\_bvp}.
     \inputminted[breaklines, fontsize=\small, firstline=1, lastline=26]{python}{blasius_equation.py}
     
-    Alternativ kann man das System natürlich auch wie im Hinweis vorgeschlagen mit dem expliziten Eulerverfahren und einem Bisektionsalgorithmus implementieren.
+    Alternativ kommt auch wie im Hinweis vorgeschlagen mit dem expliziten Eulerverfahren und einem Bisektionsalgorithmus auf die Lösung.
     \inputminted[breaklines, fontsize=\small, firstline=38, lastline=75]{python}{blasius_equation.py}
     
-    Für die nächste Aufgabe benötigen wir auch noch jenes $\eta$, sodass $f'(\eta) = 0.99$ gilt.
+    Für die nächste Aufgabe benötigen wir auch noch $\eta$, sodass $f'(\eta) = 0.99$ ist.
     \inputminted[breaklines, fontsize=\small, firstline=29, lastline=33]{python}{blasius_equation.py}
     \end{solution}
     
     
-    \question For this exercise we define the boundary-layer thickness $\delta$ such that $u = 0.9 V_{\infty}$. Using the stream function in the previous exercise calculate $\delta$ as a function of $x$. Interpret the result.
+    \question For this exercise we define the boundary-layer thickness $\delta$ such that $u = 0.99 V_{\infty}$. Using the stream function in the previous exercise calculate $\delta$ as a function of $x$. Interpret the result.
     
     \begin{solution}
         In weiser Voraussicht haben wir in der vorigen Aufgabe bereits das Argument der ersten Ableitung $f'$ zum Funktionswert $0.99$ bestimmt. Die Newtoniteration ergab den Wert $\eta \approx 4.9$. Wir wissen, dass 
@@ -388,7 +388,7 @@
         \end{equation*}
         Da $\eta := y \sqrt{\frac{V_{\infty}}{\nu x}} = \delta \sqrt{\frac{V_{\infty}}{\nu x}} = 4.9$, ergibt Umformen auf $\delta$
         \begin{equation*}
-            \delta = \frac{4.9x}{\sqrt{\operatorname{Re}_x}},
+            \delta = \frac{4.9 x}{\sqrt{\operatorname{Re}_x}},
         \end{equation*}
         wobei $\operatorname{Re}_x = \frac{\rho_{\infty} V_{\infty} x}{\mu}$.
     \end{solution}
