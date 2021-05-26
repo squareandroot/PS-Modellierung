@@ -12,6 +12,7 @@
 \usepackage{xcolor}
 \usepackage{siunitx}
 \usepackage{minted}
+\usepackage{hyperref}
 
 \newcommand{\del}{\partial}
 
@@ -378,12 +379,6 @@
         2 f''' + ff'' = 0, \qquad f(0) = 0, \quad f'(0) = 0, \quad f'(\infty) = 1.
     \end{equation*}
     Hint: Write the ODE as a first order system. Then integrate the first order system using the Euler method and initial values $f(0) = 0$, $f'(0) = 0$, $f''(0) = z$ until $\eta = 10$. Implement a bisection method in order to find the correct $z$.
-    
-    \begin{figure}[!htbp]
-        \centering
-        \includegraphics[width=0.75\textwidth]{plot_blasius_equation.pdf}
-        \label{fig:blasius_solution}
-    \end{figure}
 
     \begin{solution}
         Wir schreiben die Differentialgleichung in ein System von Differentialgleichungen erster Ordnung um. Dafür sei
@@ -392,11 +387,15 @@
             f_1 &:= f' \\
             f_2 &:= -\frac{1}{2} f_0 f_2
         \end{align*}
-        Die Randbedingungen werden zu $f_0(0) = 0$, $f_1(0) = 0$ sowie $f_1(\infty) = 1$ beziehungsweise $f_2(0) = z$.
-        
-        Im folgenden Lösen wir dieses System mithilfe der \texttt{scipy} Funktion \texttt{solve\_bvp}.
-        \inputminted[breaklines, fontsize=\small]{python}{blasius_equation.py}
+        Die Randbedingungen werden zu $f_0(0) = 0$, $f_1(0) = 0$ sowie $f_1(\infty) = 1$ beziehungsweise $f_2(0) = z$. Der Code ist weiter dargestellt.
     \end{solution}
+    Im folgenden Lösen wir dieses System mithilfe der \texttt{scipy} Funktion \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_bvp.html}{\texttt{solve\_bvp}}.
+    \inputminted[breaklines, fontsize=\small, frame=single]{python}{blasius_equation.py}
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width=0.75\textwidth]{plot_blasius_equation.pdf}
+        \label{fig:blasius_solution}
+    \end{figure}
     
     
     \question For this exercise we define the boundary-layer thickness $\delta$ such that $u = 0.99 V_{\infty}$. Using the stream function in the previous exercise calculate $\delta$ as a function of $x$. Interpret the result.
