@@ -51,7 +51,7 @@
     
     \question Imagine a (small) fluid element of velocity $(u_1, v_1)$, pressure $p_1$, volume $V_1$, and density $\rho_1$. The energy stored in that fluid element is
     \begin{equation*}
-        E_1 = V_1 \left( p_1 + \frac{1}{2} \rho_1 (u^2_1 + v^2_1)\right).
+        E_1 = V_1 \left( p_1 + \frac{1}{2} \rho_1 (u^2_1 + v^2_1) \right).
     \end{equation*}
     Show that $E_1$ is indeed measured in units of energy. \newline
     Now, our fluid elements moves with the fluid and at a later time it has velocity $(u_2, v_2)$, pressure $p_2$, and volume $V_2$. Show that we can derive Bernoulli's equation
@@ -63,19 +63,17 @@
     \begin{solution}
         Die Einheit von $E_1$ berechnet sich zu
         \begin{equation*}
-            \left[E_1\right]=\left[V_1 \left( p_1 + \frac{1}{2} \rho_1 (u^2_1 + v^2_1)\right)\right]=
-            \left[ V_1\right]\left[\rho_1 \right]\left[u_1 \right]^2=
-            l^3ml^{-3}l^2t^{-2}=ml^2t^{-2},
+            \left[ E_1 \right] = \left[ V_1 \left( p_1 + \frac{1}{2} \rho_1 (u^2_1 + v^2_1) \right) \right] = \left[ V_1 \right] \left[ \rho_1 \right] \left[ u_1 \right]^2 = \mathsf{L}^3 \, \mathsf{M} \, \mathsf{L}^{-3} \, \mathsf{L}^2 \, \mathsf{T}^{-2} = \mathsf{M} \, \mathsf{L}^2 \, \mathsf{T}^{-2},
         \end{equation*}
         was gerade die Einheit der Energie ist. Ist nun
         \begin{equation*}
-            E_1 = V_1 \left( p_1 + \frac{1}{2} \rho_1 (u^2_1 + v^2_1)\right)
+            E_1 = V_1 \left( p_1 + \frac{1}{2} \rho_1 (u^2_1 + v^2_1) \right)
             \quad \text{und} \quad
-            E_2 = V_2 \left( p_2 + \frac{1}{2} \rho_2 (u^2_2 + v^2_2)\right),
+            E_2 = V_2 \left( p_2 + \frac{1}{2} \rho_2 (u^2_2 + v^2_2) \right),
         \end{equation*}
         ergibt sich dann unter Annahme, dass $E_1 = E_2$, $V_1 = V_2$ und $\rho := \rho_1 = \rho_2$ sofort
         \begin{equation*}
-            V_1 \left( p_1 + \frac{1}{2} \rho (u^2_1 + v^2_1)\right) = V_1 \left( p_2 + \frac{1}{2} \rho (u^2_2 + v^2_2)\right).
+            V_1 \left( p_1 + \frac{1}{2} \rho (u^2_1 + v^2_1) \right) = V_1 \left( p_2 + \frac{1}{2} \rho (u^2_2 + v^2_2) \right).
         \end{equation*}
         Division durch $V_1$ zeigt die gewünschte Gleichheit
         \begin{equation*}
@@ -388,22 +386,16 @@
     \end{figure}
 
     \begin{solution}
-    Wir schreiben die Differentialgleichung in ein System von Differentialgleichungen erster Ordnung um. Dafür sei
-    \begin{align*}
-        f_0 &:= f \\
-        f_1 &:= f' \\
-        f_2 &:= -\frac{1}{2} f_0 f_2
-    \end{align*}
-    Die Randbedingungen werden zu $f_0(0) = 0$, $f_1(0) = 0$ sowie $f_1(\infty) = 1$ beziehungsweise $f_2(0) = z$.
-    
-    Im folgenden Lösen wir dieses System mithilfe der \texttt{scipy} Funktion \texttt{solve\_bvp}.
-    \inputminted[breaklines, fontsize=\small, firstline=1, lastline=26]{python}{blasius_equation.py}
-    
-    Alternativ kommt auch wie im Hinweis vorgeschlagen mit dem expliziten Eulerverfahren und einem Bisektionsalgorithmus auf die Lösung.
-    \inputminted[breaklines, fontsize=\small, firstline=38, lastline=75]{python}{blasius_equation.py}
-    
-    Für die nächste Aufgabe benötigen wir auch noch $\eta$, sodass $f'(\eta) = 0.99$ ist.
-    \inputminted[breaklines, fontsize=\small, firstline=29, lastline=33]{python}{blasius_equation.py}
+        Wir schreiben die Differentialgleichung in ein System von Differentialgleichungen erster Ordnung um. Dafür sei
+        \begin{align*}
+            f_0 &:= f \\
+            f_1 &:= f' \\
+            f_2 &:= -\frac{1}{2} f_0 f_2
+        \end{align*}
+        Die Randbedingungen werden zu $f_0(0) = 0$, $f_1(0) = 0$ sowie $f_1(\infty) = 1$ beziehungsweise $f_2(0) = z$.
+        
+        Im folgenden Lösen wir dieses System mithilfe der \texttt{scipy} Funktion \texttt{solve\_bvp}.
+        \inputminted[breaklines, fontsize=\small]{python}{blasius_equation.py}
     \end{solution}
     
     
