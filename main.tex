@@ -387,10 +387,10 @@
             f_1 &:= f' \\
             f_2 &:= -\frac{1}{2} f_0 f_2
         \end{align*}
-        Die Randbedingungen werden zu $f_0(0) = 0$, $f_1(0) = 0$ sowie $f_1(\infty) = 1$ beziehungsweise $f_2(0) = z$. Der Code ist weiter dargestellt.
+        Die Randbedingungen werden zu $f_0(0) = 0$, $f_1(0) = 0$ sowie $f_1(\infty) = 1$ beziehungsweise $f_2(0) = z$. Der Code ist unten angegeben.
     \end{solution}
     Im folgenden Lösen wir dieses System mithilfe der \texttt{scipy} Funktion \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_bvp.html}{\texttt{solve\_bvp}}.
-    \inputminted[breaklines, fontsize=\small, frame=single]{python}{blasius_equation.py}
+    \inputminted[breaklines, fontsize=\small, frame=single, linenos=true]{python}{blasius_equation.py}
     \begin{figure}[!htbp]
         \centering
         \includegraphics[width=0.75\textwidth]{plot_blasius_equation.pdf}
