@@ -26,7 +26,7 @@ plt.savefig("plot_blasius_equation.pdf", bbox_inches="tight", pad_inches=0.05)
 plt.show()
 
 
-# Alternatively one could use the explicit euler method in combination with bisection to find the correct z
+# Alternatively, one could use the explicit Euler method in combination with bisection to find the correct value for z
 
 def explicitEuler(z, h, N):
     t = 0 + np.arange(N + 1) * h
@@ -68,7 +68,7 @@ plt.grid()
 plt.show()
 
 
-# In exercise 10 wee need the following value
+# In exercise 10 we will need the following value
 
 def f(x):
     return sol.sol(x)[1] - 0.99
