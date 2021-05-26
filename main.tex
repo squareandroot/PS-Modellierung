@@ -9,6 +9,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{pdfpages}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{siunitx}
 \usepackage{minted}
 
@@ -100,6 +101,33 @@
     \question Calculate the potential for the uniform flow over a cylinder. What units are associated with the streamfunction and the potential?
     
     \begin{solution}
+        Da $x = r \cos \theta$ und $y = r \sin \theta$, erfüllen $\phi$ und $\psi$
+        \begin{equation*}
+            \frac{\del \phi}{\del r} = \frac{1}{r} \frac{\del \psi}{ \del \theta} \quad \text{und} \quad \frac{1}{r} \frac{\del \phi}{\del \theta} = -\frac{\del \psi}{\del r}.
+        \end{equation*}
+        Aus der Vorlesung kennen wir $\psi$ (Herleitung siehe unten) als
+        \begin{equation*}
+            \psi = V_{\infty} r \sin \theta \left( 1 - \frac{R^2}{r^2} \right).
+        \end{equation*}
+        Ableiten nach $\theta$ und $r$ ergibt
+        \begin{align*}
+            \frac{1}{r} \frac{\del \psi}{\del \theta} &=  V_{\infty} \cos \theta \left( 1 - \frac{R^2}{r^2} \right) \\
+            -r \frac{\del \psi}{\del r} &= -V_{\infty} r \sin \theta \left( 1 + \frac{R^2}{r^2} \right).
+        \end{align*}
+        Integration nach $\theta$ respektive $r$ führt auf
+        \begin{equation*}
+            \phi = V_{\infty} r \cos \theta \left( 1 + \frac{R^2}{r^2} \right).
+        \end{equation*}
+        Wir führen noch eine Dimensionsanalyse für $\phi$ und $\psi$ durch. Es gilt
+        \begin{equation*}
+            \frac{[\del \psi]}{[\del y]} = \frac{[\del \phi]}{[\del x]} = [u] = \mathsf{L} \, \mathsf{T}^{-1}.
+        \end{equation*}
+        Dabei ist $[\del x] = [\del y] = \mathsf{L}$, also
+        \begin{equation*}
+            [\psi] = [\phi] = \mathsf{L}^2 \, \mathsf{T}^{-1}.
+        \end{equation*}
+        
+        \textbf{Herleitung:} \\
         Der Laplace-Operator schreibt sich für bekanntlich in Polarkoordinaten als
         \begin{equation*}
             \frac{1}{r} \frac{\del}{\del r} \left( r \frac{\del \psi}{\del r} \right) + \frac{1}{r^2} \frac{\del^2 \psi}{\del \theta^2}.
@@ -125,7 +153,7 @@
         \end{equation*}
         Nun gilt es die Randbedingungen zu erfüllen, denn es sollen
         \begin{equation*}
-            \frac{\del \psi}{\del \theta} \vert_{r=R} = 0
+            \frac{\del \psi}{\del \theta} \bigg\vert_{r=R} = 0
         \end{equation*}
         und
         \begin{equation*}
@@ -405,7 +433,7 @@
     Choose $\Omega = [0, L] \times [0, \infty)$ and simplify the integral. Then invoke Newton's second law.
     
     \begin{solution}
-        A11.
+        {\color{red} TODO}
     \end{solution}
     
     
@@ -425,7 +453,7 @@
     Derive the corresponding plane wave solutions and interpret your results.
     
     \begin{solution}
-        A12.
+        {\color{red} TODO}
     \end{solution}
     
     
@@ -441,7 +469,7 @@
     Plot, on a double logarithmic scale, the absolute value of the the Fourier coeffcients corresponding to positive frequencies at time $t = 0.6$ for $\operatorname{Re} = 50$, $\operatorname{Re} = 200$, and $\operatorname{Re} = 800$.
     
     \begin{solution}
-        A13.
+        {\color{red} TODO}
     \end{solution}
     
 \end{questions}
