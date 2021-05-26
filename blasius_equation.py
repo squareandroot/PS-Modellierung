@@ -26,14 +26,7 @@ plt.savefig("plot_blasius_equation.pdf", bbox_inches="tight", pad_inches=0.05)
 plt.show()
 
 
-def f(x):
-    return sol.sol(x)[1] - 0.99
-
-
-for_boundary_layer = newton(f, 6)
-
-
-# Implementation with explicit Euler method and bisection to determine z
+# Alternatively one could use the explicit euler method in combination with bisection to find the correct z
 
 def explicitEuler(z, h, N):
     t = 0 + np.arange(N + 1) * h
@@ -73,3 +66,12 @@ plt.ylabel(r"$f'(\eta)$")
 plt.title(r"Solution for the ideal parameter $z = $" + str(round(z, 4)))
 plt.grid()
 plt.show()
+
+
+# In exercise 10 wee need the following value
+
+def f(x):
+    return sol.sol(x)[1] - 0.99
+
+
+for_boundary_layer = newton(f, 6)
