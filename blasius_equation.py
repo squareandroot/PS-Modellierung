@@ -58,7 +58,7 @@ def bisection(z0, z1, h, N, tol=1e-8):
 
 z = bisection(0, 10, h=0.01, N=1000)
 
-sol, x_plot, y_plot = explicitEuler(z, h=0.01, N=1000)
+sol2, x_plot, y_plot = explicitEuler(z, h=0.01, N=1000)
 
 plt.plot(x_plot, y_plot)
 plt.xlabel(r"$\eta$")
@@ -71,7 +71,7 @@ plt.show()
 # In exercise 10 we will need the following value
 
 def f(x):
-    return sol.sol(x)[1] - 0.99
+    return sol.sol(x)[1] - 0.9
+    
 
-
-for_boundary_layer = newton(f, 6)
+for_boundary_layer = newton(f, 4)
