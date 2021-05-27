@@ -85,7 +85,7 @@
     
     \question Show that a streamfunction $\psi$, i.e. $u = \del_y \psi$ and $v = -\del_x \psi$, satisfies the incompressibility condition. That is, $\nabla \cdot u = 0$. Then show that
     \begin{equation*}
-        \Delta \Phi = 0 \iff \Delta \psi = 0.
+        \Delta \phi = 0 \iff \Delta \psi = 0.
     \end{equation*}
     
     \begin{solution}
@@ -398,18 +398,20 @@
     \end{figure}
     
     
-    \question For this exercise we define the boundary-layer thickness $\delta$ such that $u = 0.99 V_{\infty}$. Using the stream function in the previous exercise calculate $\delta$ as a function of $x$. Interpret the result.
+    \question For this exercise we define the boundary-layer thickness $\delta$ such that $u = 0.9 V_{\infty}$. Using the stream function in the previous exercise calculate $\delta$ as a function of $x$. Interpret the result.
     
     \begin{solution}
-        In weiser Voraussicht haben wir in der vorigen Aufgabe bereits das Argument der ersten Ableitung $f'$ zum Funktionswert $0.99$ bestimmt. Die Newtoniteration ergab den Wert $\eta \approx 4.9$. Wir wissen, dass 
+        In weiser Voraussicht haben wir in der vorigen Aufgabe bereits das Argument der ersten Ableitung $f'$ zum Funktionswert $0.9$ bestimmt. Die Newtoniteration ergab den Wert $\eta \approx 4.9$. Wir wissen, dass 
         \begin{equation*}
-            u = V_{\infty} f'(\eta) \overset{!}{=} V_{\infty} 0.99.
+            u = V_{\infty} f'(\eta) \overset{!}{=} V_{\infty} 0.9.
         \end{equation*}
         Da $\eta := y \sqrt{\frac{V_{\infty}}{\nu x}} = \delta \sqrt{\frac{V_{\infty}}{\nu x}} = 4.9$, ergibt Umformen auf $\delta$
         \begin{equation*}
             \delta = \frac{4.9 x}{\sqrt{\operatorname{Re}_x}},
         \end{equation*}
         wobei $\operatorname{Re}_x = \frac{\rho_{\infty} V_{\infty} x}{\mu}$.
+        
+        {\color{red} TODO Interpret}
     \end{solution}
     
     
@@ -419,7 +421,7 @@
     \end{equation*}
     Hint: If we consider only viscous effects, the force in the $x$-direction, $F_1$, acting on a fluid parcel $\Omega$ is given by
     \begin{equation*}
-        F_1 = \int_\Omega \mu \Delta u \, dx.
+        F_1 = \int_\Omega \mu \Delta u \, d \mathbf{x}.
     \end{equation*}
     Choose $\Omega = [0, L] \times [0, \infty)$ and simplify the integral. Then invoke Newton's second law.
     
