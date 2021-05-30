@@ -390,8 +390,11 @@
         \end{align*}
         Die Randbedingungen werden zu $f_0(0) = 0$, $f_1(0) = 0$ sowie $f_1(\infty) = 1$ beziehungsweise $f_2(0) = z$. Der Code ist unten angegeben.
     \end{solution}
+    
     Im folgenden Lösen wir dieses System mithilfe der \texttt{scipy} Funktion \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_bvp.html}{\texttt{solve\_bvp}}.
+    
     \inputminted[breaklines, fontsize=\small, frame=single, linenos=true]{python}{blasius_equation.py}
+    
     \begin{figure}[!htbp]
         \centering
         \includegraphics[width=0.75\textwidth]{plot_blasius_equation.pdf}
@@ -524,6 +527,13 @@
     \begin{solution}
         Der Code samt Plot ist unten dargestellt. Man sieht wie die Lösung zunehmend hochfrequente Anteile besitzt. Das deutet auf die Unstetigkeitsstellen hin, die der Bildung von Schockwellen in der Wirklichkeit entsprechen.
     \end{solution}
+    
+    \begin{figure}[!htpb]
+        \centering
+        \includegraphics{toy_model.pdf}
+        \label{fig:toymodel}
+    \end{figure}
+    
     \inputminted[breaklines, fontsize=\small, frame=single, linenos=true]{python}{toy_model.py}
     
 \end{questions}
