@@ -4,7 +4,8 @@ from scipy import fft
 
 
 def f(u: np.array, x: np.array, j: int, Re: int) -> float:
-    """RHS of the discretised equation in exercise 13
+    """
+    RHS of the discretised equation in exercise 13
 
     Args:
         u (np.array): Solution u at some time.
@@ -25,7 +26,8 @@ def f(u: np.array, x: np.array, j: int, Re: int) -> float:
 
 
 def explicitEuler(f, Re: int, t: float = 1e-3, n: int = 100) -> np.array:
-    """explicit Euler method
+    """
+    Explicit Euler method
 
     Args:
         f (function): RHS of equation.
@@ -47,7 +49,8 @@ def explicitEuler(f, Re: int, t: float = 1e-3, n: int = 100) -> np.array:
 
 
 def plotting(Re_list: list) -> list:
-    """plot positive coefficients of the Fourier transformed
+    """
+    Plot positive coefficients of the Fourier transformed
     solution discretised at t = 0.6 using different values of Re.
 
     Args:
