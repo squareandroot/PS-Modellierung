@@ -48,14 +48,13 @@ def explicitEuler(f, Re: int, t: float = 1e-3, n: int = 100) -> np.array:
 
 def plotting(Re_list: list) -> list:
     """plot positive coefficients of the Fourier transformed
-    solution for the discretisation at t = 0.6 using different
-    values for Re.
+    solution discretised at t = 0.6 using different values of Re.
 
     Args:
         Re_list (list): values of Re to solve pde for and plot the result.
 
     Returns:
-        list: fourier transforms of solution for every Re
+        list: fourier transform of solution for every Re
     """
     all_fft_U = list()
     for Re in Re_list:
