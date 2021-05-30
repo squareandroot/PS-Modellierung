@@ -15,6 +15,7 @@
 \usepackage{hyperref}
 
 \newcommand{\del}{\partial}
+\newcommand{\vdiv}{\operatorname{div}}
 
 \footer{}{\thepage}{}
 
@@ -411,7 +412,7 @@
         \end{equation*}
         wobei $\operatorname{Re}_x = \frac{\rho_{\infty} V_{\infty} x}{\mu}$.
         
-        {\color{red} TODO Interpret}
+        Es bildet sich also eine Grenzschicht, die bis auf eine Faktor mit der Wurzeln von $x$ zunimmt. Der Faktor ist dabei abhängig von der Reynolds-Zahl.
     \end{solution}
     
     
@@ -425,15 +426,25 @@
     \end{equation*}
     Choose $\Omega = [0, L] \times [0, \infty)$ and simplify the integral. Then invoke Newton's second law.
     
-    \begin{solution}
-        {\color{red} TODO}
+    \begin{solution} Wir folgen dem Hinweis
+        \begin{align*}
+            F_1 = \int_{\Omega} \mu \Delta u \, d \mathbf{x} &= \mu \int_0^L \int_0^{\infty} \underbrace{\frac{\del^2 u}{\del x^2}}_{= 0} + \frac{\del^2 u}{\del y^2} \, d \mathbf{x} \\
+            &= \mu \int_0^L \int_0^{\infty} \frac{\del^2 u}{\del y^2} \, d \mathbf{x} \\
+            &= \mu L \int_0^{\infty} \frac{\del^2 u}{\del y^2} \, dy \\
+            &= \mu L \left[ \frac{\del u}{\del y} \right]_{0}^{\infty} \\
+            &= -\mu L \frac{\del u}{\del y} \bigg \vert_{y = 0}
+        \end{align*}
+        und erhalten nun die Aussage unter Verwendung Newtons drittem Gesetz: \textit{Actio et Reactio}.
+        \begin{equation*}
+            D_f = -F_1 = \mu L \frac{\del u}{\del y} \bigg \vert_{y = 0}
+        \end{equation*}
     \end{solution}
     
     
     \question Linearize the Navier-Stokes equations
     \begin{align*}
         \del_t \rho + \nabla \cdot (\rho u) &= 0 \\
-        \del_t \rho + (u \cdot \nabla) u + \frac{1}{\rho} \nabla p &= \frac{\mu}{\rho} \Delta u
+        \del_t u + (u \cdot \nabla) u + \frac{1}{\rho} \nabla p &= \frac{\mu}{\rho} \Delta u
     \end{align*}
     to obtain the damped wave equation
     \begin{equation*}
@@ -446,7 +457,56 @@
     Derive the corresponding plane wave solutions and interpret your results.
     
     \begin{solution}
-        {\color{red} TODO}
+        Ähnlich zur Vorlesung schreiben wir 
+        \begin{align*}
+            \rho &= \rho_0 + \rho_1 \\
+            u &= 0 + u_1 \\
+            p &= p_0 + p_1.
+        \end{align*}
+        Wir vergessen die quadratische Terme in $\rho_1, u_1, p_1$, die beim Einsetzen in die kompressiblen Navier-Stokes Gleichung auftreten. Daraus ergibt sich
+        \begin{align*}
+            \del_t \rho_1 + \rho_0 \vdiv(u_1) &= 0 \\
+            \del_t u_1 + \frac{1}{\rho_0} \nabla p_1 &= \frac{\mu}{\rho_0} \Delta u_1.
+        \end{align*}
+        Wir bilden die Divergenz auf beiden Seiten und da $\vdiv(\Delta u_1) = \Delta \vdiv(u_1)$, gilt
+        \begin{align*}
+            \vdiv(\del_t u_1) + \frac{1}{\rho_0} \vdiv(\nabla p_1) &= \frac{\mu}{\rho_0} \vdiv(\Delta u_1) \\
+            \del_t \vdiv(u_1) + \frac{1}{\rho_0} \Delta p_1 &= \frac{\mu}{\rho_0} \Delta \vdiv(u_1).
+        \end{align*}
+        Wenn wir die erste Gleichung ein weiteres Mal nach $t$ differenzieren, ergibt das
+        \begin{align*}
+            \del_{tt} \rho_1 + \rho_0 \del_t \vdiv(u_1) &= 0 \\
+            \del_t \vdiv(u_1) &= -\frac{1}{\rho_0} \del_{tt} \rho_1.
+        \end{align*}
+        Einsetzen führt dann auf
+        \begin{align*}
+            -\frac{1}{\rho_0} \del_{tt} \rho_1 + \frac{1}{\rho_0} \Delta p_1 = \frac{\mu}{\rho_0} \Delta \vdiv(u_1),
+        \end{align*}
+        wobei wegen der ersten Gleichung
+        \begin{equation*}
+            \Delta \vdiv(u_1) = -\frac{1}{\rho_0} \Delta \del_t \rho_1
+        \end{equation*}
+        gilt. Wegen $p = \rho R T$ ist also
+        \begin{equation*}
+            \del_{tt} \rho_1 - \frac{\mu}{\rho_0} \Delta \del_t \rho_1 = RT \Delta \rho_1.
+        \end{equation*}
+        Fourier-Transformation ergibt
+        \begin{equation*}
+            (i \omega)^2 \hat{\rho}_1 - \frac{\mu}{\hat{\rho}_0}(i k)^2 i \omega \hat{\rho}_1=RT (i k)^2 \hat{\rho}_1.
+        \end{equation*}
+        Wenn wir diesen Ausdruck vereinfachen
+        \begin{align*}
+            \omega^2 \hat{\rho}_1 - \frac{\mu}{\hat{\rho}_0} k^2 i \omega \hat{\rho}_1 &= RT k^2 \hat{\rho}_1 \\
+            \omega^2 - \frac{\mu}{\hat{\rho}_0} k^2 i\omega &= RT k^2 
+        \end{align*}
+        und die quadratische Lösungsformel anwenden, ist
+        \begin{align*}
+            \omega(k) &= \frac{\mu}{2 \hat{\rho}_0} k^2 i \pm \sqrt{- \frac{\mu^2}{4 \hat{\rho}_0^2} k^4 + RT k^2} \\
+            &= \pm \sqrt{RT} |k| + i \frac{\mu}{2 \rho_0} k^2,
+        \end{align*}
+        wobei die letzte Gleichung aus der Bedingung $(\mu / \rho_0)^2 k^2 \ll RT$ folgt.
+        
+        Wir sehen also, dass die Dispersionsrelation nun auch von der Viskosität und in gewisser Weise von der Größenordnung der Dichte abhängt.
     \end{solution}
     
     
@@ -462,7 +522,7 @@
     Plot, on a double logarithmic scale, the absolute value of the the Fourier coeffcients corresponding to positive frequencies at time $t = 0.6$ for $\operatorname{Re} = 50$, $\operatorname{Re} = 200$, and $\operatorname{Re} = 800$.
     
     \begin{solution}
-        {\color{red} TODO}
+        {\color{red} TODO (Andi: Mach ich dann fertig - Danke Andi :) - Christina)}
     \end{solution}
     
 \end{questions}
