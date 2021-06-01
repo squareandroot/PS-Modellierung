@@ -17,6 +17,14 @@
 \newcommand{\del}{\partial}
 \newcommand{\vdiv}{\operatorname{div}}
 
+\hypersetup
+{
+    pdfauthor={Andreas Mair, Christina Schwaiger, Martin Fuchs \& Morris-Luca Kühmeier},
+    pdfsubject={Modellierung},
+    pdftitle={ps-sheet3-fluids},
+    pdfkeywords={Proseminar, Modellierung, Blatt 3}
+}
+
 \footer{}{\thepage}{}
 
 \begin{document}
@@ -509,7 +517,14 @@
         \end{align*}
         wobei die letzte Gleichung aus der Bedingung $(\mu / \rho_0)^2 k^2 \ll RT$ folgt.
         
-        Wir sehen also, dass die Dispersionsrelation nun auch von der Viskosität und in gewisser Weise von der Größenordnung der Dichte abhängt.
+        Die Dispersionsrelation ist nun also auch von der Viskosität und in gewisser Weise von der Größenordnung der Dichte abhängt. Es ist dann
+        \begin{equation*}
+            \rho_1 (t, x) = e^{i k x + i \omega(k) t}
+        \end{equation*}
+        eine Lösung und man sieht daran, dass die Viskosität eine dämpfende Wirkung auf die Ausbreitung der Welle hat, da
+        \begin{equation*}
+            e^{i \omega(k) t} = e^{-\frac{\mu}{2 \rho_0} k^2 t + \sqrt{RT} i |k| t}.
+        \end{equation*}
     \end{solution}
     
     
