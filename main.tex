@@ -303,32 +303,38 @@
     \begin{solution}
         Der Satz von Bernoulli besagt
         \begin{equation*}
-            p + \frac{1}{2} \rho \left( u^2 + v^2 \right) = \text{const}
+            p + \frac{1}{2} \rho \left( u^2 + v^2 \right) = p_{\infty} + \frac{1}{2} \rho | V_{\infty} |^2
         \end{equation*}
         Einsetzen von $\frac{\del \psi}{\del y} = u$ und $-\frac{\del \psi}{\del x} = v$ führt zu
         \begin{equation*}
-            p + \frac{1}{2} \rho \left( \left( \frac{\del \psi}{\del y} \right)^2 + \left( \frac{\del \psi}{\del x} \right)^2 \right) = \text{const}.
+            p + \frac{1}{2} \rho \left( \left( \frac{\del \psi}{\del y} \right)^2 + \left( \frac{\del \psi}{\del x} \right)^2 \right) = p_{\infty} + \frac{1}{2} \rho | V_{\infty} |^2.
         \end{equation*}
-        Nach dem Satz von Gauß gilt
+        Sei $C := p_{\infty} + \frac{1}{2} \rho_{\infty} | V_{\infty} |^2$, dann schreibt sich die Kraft $F$ als
+        \begin{align*}
+            \int_{\del \Omega} pn \, dS &= \int_{\del \Omega} C - \frac{1}{2} \rho \left( \left( \frac{\del \psi}{\del y} \right)^2 + \left( \frac{\del \psi}{\del x} \right)^2 \right) \, dS \\
+            &= C S(\del \Omega) - \frac{1}{2} \rho \int_{\del \Omega} \| \nabla \psi \|^2 \, dS.
+        \end{align*}
+        
+        Alternativ gilt nach dem Satz von Gauß
         \begin{align*}
             \int_{\del \Omega} f n_1 \, dS &= \int_{ \Omega}\frac{\del f}{\del x} \, dV  \\
             \int_{\del \Omega} f n_2 \, dS &= \int_{ \Omega}\frac{\del f}{\del y} \, dV.
         \end{align*}
         Damit berechnen wir nun $D$ und $L$, also
         \begin{align*}
-            D &= \int_{\del \Omega} p n_1 \, dS \\
-            &= \int_{\Omega} \frac{\del p}{\del x} \, dV \\
-            &= \int_{ \Omega} \frac{\del}{\del x} \left( C - \frac{1}{2} \rho \left( u^2 + v^2 \right) \right) \, dV \\
-            &= -\frac{1}{2} \rho \int_{\Omega} \frac{\del}{\del x} \left( \left( \frac{\del \psi}{\del y} \right)^2 + \left( \frac{\del \psi}{\del x} \right)^2 \right) \, dV \\
-            &= -\rho \int_{\Omega} \left( \frac{\del \psi}{\del y} \frac{\del^2 \psi}{\del x \del y} + \frac{\del \psi}{\del x} \frac{\del^2 \psi}{\del x^2} \right) \, dV
+            D &= \int_{\del \Omega^{\mathrm{C}}} p n_1 \, dS \\
+            &= \int_{\Omega^{\mathrm{C}}} \frac{\del p}{\del x} \, dV \\
+            &= \int_{ \Omega^{\mathrm{C}}} \frac{\del}{\del x} \left( C - \frac{1}{2} \rho \left( u^2 + v^2 \right) \right) \, dV \\
+            &= -\frac{1}{2} \rho \int_{\Omega^{\mathrm{C}}} \frac{\del}{\del x} \left( \left( \frac{\del \psi}{\del y} \right)^2 + \left( \frac{\del \psi}{\del x} \right)^2 \right) \, dV \\
+            &= -\rho \int_{\Omega^{\mathrm{C}}} \left( \frac{\del \psi}{\del y} \frac{\del^2 \psi}{\del x \del y} + \frac{\del \psi}{\del x} \frac{\del^2 \psi}{\del x^2} \right) \, dV
         \end{align*}
         und dann noch
         \begin{align*}
-            L &= \int_{\del \Omega} p n_2 \, dS \\
-            &= \int_{\Omega} \frac{\del p}{\del y} \, dV \\
-            &= \int_{\Omega} \frac{\del}{\del y} \left( C - \frac{1}{2} \rho \left( u^2 + v^2 \right) \right) \, dV \\
-            &= -\frac{1}{2} \rho \int_{ \Omega} \frac{\del}{\del y} \left( \left( \frac{\del \psi}{\del y} \right)^{2} + \left( \frac{\del \psi}{\del x} \right)^{2} \right) \, dV \\
-            &= -\rho \int_{ \Omega} \left( \frac{\del \psi}{\del y} \frac{\del^2 \psi}{\del y^2} + \frac{\del \psi}{\del x} \frac{\del^2 \psi}{\del y \del x} \right) \, dV.
+            L &= \int_{\del \Omega^{\mathrm{C}}} p n_2 \, dS \\
+            &= \int_{\Omega^{\mathrm{C}}} \frac{\del p}{\del y} \, dV \\
+            &= \int_{\Omega^{\mathrm{C}}} \frac{\del}{\del y} \left( C - \frac{1}{2} \rho \left( u^2 + v^2 \right) \right) \, dV \\
+            &= -\frac{1}{2} \rho \int_{ \Omega^{\mathrm{C}}} \frac{\del}{\del y} \left( \left( \frac{\del \psi}{\del y} \right)^{2} + \left( \frac{\del \psi}{\del x} \right)^{2} \right) \, dV \\
+            &= -\rho \int_{ \Omega^{\mathrm{C}}} \left( \frac{\del \psi}{\del y} \frac{\del^2 \psi}{\del y^2} + \frac{\del \psi}{\del x} \frac{\del^2 \psi}{\del y \del x} \right) \, dV.
         \end{align*}
     \end{solution}
     
