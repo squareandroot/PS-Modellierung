@@ -439,8 +439,8 @@
     
     \begin{solution} Wir folgen dem Hinweis
         \begin{align*}
-            F_1 = \int_{\Omega} \mu \Delta u \, d \mathbf{x} &= \mu \int_0^L \int_0^{\infty} \underbrace{\frac{\del^2 u}{\del x^2}}_{= 0} + \frac{\del^2 u}{\del y^2} \, d \mathbf{x} \\
-            &= \mu \int_0^L \int_0^{\infty} \frac{\del^2 u}{\del y^2} \, d \mathbf{x} \\
+            F_1 = \int_{\Omega} \mu \Delta u \, d \mathbf{x} &= \mu \int_0^L \int_0^{\infty} \underbrace{\frac{\del^2 u}{\del x^2}}_{= 0} + \frac{\del^2 u}{\del y^2} \, dy \, dx \\
+            &= \mu \int_0^L \int_0^{\infty} \frac{\del^2 u}{\del y^2} \, dy \, dx \\
             &= \mu L \int_0^{\infty} \frac{\del^2 u}{\del y^2} \, dy \\
             &= \mu L \left[ \frac{\del u}{\del y} \right]_{0}^{\infty} \\
             &= -\mu L \frac{\del u}{\del y} \bigg \vert_{y = 0}
